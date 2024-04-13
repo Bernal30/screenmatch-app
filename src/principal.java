@@ -18,6 +18,9 @@ public class principal {
         //se llama al metodo showsCalculationMean()
         myMovie.showsCalculationMean();
 
+        System.out.println("El rating de Metacritic es de " + myMovie.getMetacriticRatingMyMovie());
+
+        // SEGUNDA PELICULA
         movie anotherMovie = new movie();
         anotherMovie.name = "Lego Movie";
         anotherMovie.dateRelease = 2016;

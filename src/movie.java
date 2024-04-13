@@ -5,9 +5,16 @@ public class movie {
     int dateRelease;
     int minutesLong;
     boolean addedInPlan;
-    //modificasor de acceso private para que no pueda acceder a el desde fuera de la clase
-    private double ratingSum;
+    double ratingSum;
     int totalRatings;
+    //modificador de acceso private para que no se pueda acceder a el desde fuera de la clase
+    private double metacriticRatingMyMovie = 9.8;
+
+    //acceso de visibilidad fuera de la clase movie a la variable con el método getMetacriticRatingMyMovie()
+    double getMetacriticRatingMyMovie() {
+        return metacriticRatingMyMovie;
+    }
+
 
     //void hace que el metodo showsTechnicalSheet() no retorne nada
     void showsTechnicalSheet() {
@@ -28,7 +35,6 @@ public class movie {
     }
 
     void showsCalculationMean() {
-        System.out.println("La suma de las evaluaciones es: " + ratingSum);
         System.out.println("El total de las evaluaciones es: " + totalRatings);
         System.out.println("la media de los ratings es: " + calculationMean());
     }
