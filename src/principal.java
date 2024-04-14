@@ -1,4 +1,7 @@
+
+//se importan las clases del package
 import com.empresa.modelos.movie;
+import com.empresa.modelos.serie;
 
 public class principal {
     public static void main(String[] args) {
@@ -31,6 +34,15 @@ public class principal {
             System.out.println("La pelicula no esta incluida en su plan actual.");
         }
 
+        //se declara un nuevo obj serie con sus atributos
+        serie chernobylSerie = new serie();
+        chernobylSerie.setName("Chernobyl");
+        chernobylSerie.setDateRelease(2020);
+        chernobylSerie.setSeasons(1);
+        chernobylSerie.setEpisodesEachSeason(5);
+        chernobylSerie.setMinutesEachEpisode(60);
+        chernobylSerie.showsTechnicalSheet();
+        System.out.println(chernobylSerie.getMinutesLong());
 
 
 
