@@ -1,8 +1,8 @@
-package com.empresa.modelos;
+package com.empresa.screenmatch.modelos;
 
 //clase modelo para el objeto MOVIE
 //extends hace que está clase herede todos los atributos y métodos de title
-public class movie extends title{
+public class Movie extends Title {
     String director;
 
     public String getDirector() {

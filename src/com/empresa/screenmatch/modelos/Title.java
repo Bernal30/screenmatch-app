@@ -1,6 +1,6 @@
-package com.empresa.modelos;
+package com.empresa.screenmatch.modelos;
 
-public class title {
+public class Title {
     private String name;
     private int dateRelease;
     private int minutesLong;
@@ -46,7 +46,7 @@ public class title {
         return addedInPlan;
     }
 
-    //acceso de visibilidad fuera de la clase com.empresa.modelos.movie a la variable con el método getMetacriticRatingMyMovie()
+    //acceso de visibilidad a la variable fuera de la clase Movie con el método getMetacriticRatingMyMovie()
     public double getMetacriticRatingMyMovie() {
         return metacriticRatingMyMovie;
     }

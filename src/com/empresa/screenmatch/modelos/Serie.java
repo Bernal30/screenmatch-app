@@ -1,8 +1,8 @@
-package com.empresa.modelos;
+package com.empresa.screenmatch.modelos;
 
 //clase para el obj SERIES
 //hereda los atributos y metodos de la clase title
-public class serie extends title{
+public class Serie extends Title {
     int seasons;
     int episodesEachSeason;
     int minutesEachEpisode;
