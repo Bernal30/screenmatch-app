@@ -1,5 +1,7 @@
 //se importan las clases del package
 import com.empresa.screenmatch.calculos.CalculadoraDeTiempo;
+import com.empresa.screenmatch.calculos.RecommendationFilter;
+import com.empresa.screenmatch.modelos.Episodes;
 import com.empresa.screenmatch.modelos.Movie;
 import com.empresa.screenmatch.modelos.Serie;
 
@@ -71,7 +73,7 @@ public class Principal {
 
         //nuevo obj de la clase Serie
         Serie anotherSerie = new Serie();
-        anotherSerie.setName("Smilling Firends");
+        anotherSerie.setName("Smiling Firends");
         anotherSerie.setDateRelease(2020);
         anotherSerie.setSeasons(1);
         anotherSerie.setEpisodesEachSeason(9);
@@ -92,5 +94,21 @@ public class Principal {
         //se muestran los minutos totales
         System.out.println("\nEl tiempo total para ver estos titulos es: " + calculator.getTotalTime() + " minutos");
 
+        //filtro de recomendaciones para la pelicula y un capitulo
+        RecommendationFilter recommendationFilter = new RecommendationFilter();
+
+
+        //resultado del filtro de la peilicula "Fight Club" (myMovie)
+        System.out.println("\nPara la pelicula Figth Club: " + recommendationFilter.toFilter(myMovie));
+
+        //creando obj Episode
+        Episodes episode = new Episodes();
+        episode.setName("El gran día de Desmond");
+        episode.setNumberOfEpisode(1);
+        episode.setSerie(anotherSerie);
+        episode.setTotalLikes(1508);
+
+        //aplicando el filtro de recomendaciones al obj "episode"
+        System.out.println("Para este episodio episodio: " + recommendationFilter.toFilter(episode));
     }
 }
