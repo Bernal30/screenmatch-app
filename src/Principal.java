@@ -5,13 +5,14 @@ import com.empresa.screenmatch.modelos.Serie;
 
 public class Principal {
     public static void main(String[] args) {
-        //instancia de la clase modelo de MOVIE
+        //instancia de la clase modelo de MOVIE, nuevo obj "myMovie"
         Movie myMovie = new Movie();
         //declaramos atributos del objeto
         myMovie.setName("Fight Club");
         myMovie.setDateRelease(1999);
         myMovie.setMinutesLong(126);
         myMovie.setAddedInPlan(true);
+        myMovie.setDirector("David Fincher");
 
         //se muestra en pantalla la ficha tecnida de la pelicula
         myMovie.showsTechnicalSheet();
@@ -21,7 +22,7 @@ public class Principal {
         myMovie.ratingMovie(10);
         myMovie.ratingMovie(8.9);
 
-        //se llama al metodo showsCalculationMean()
+        //se muestra el calculo de la media de los ratings
         myMovie.showsCalculationMean();
 
         //se emplea el get para visualizar la variable privada metacriticRatingMyMovie
@@ -44,7 +45,7 @@ public class Principal {
         //se muestra la ficha tecnica de la serie
         chernobylSerie.showsTechnicalSheet();
         //calculo de minutos totales para ver toda la serie
-        System.out.println("Los minutos totales para ver la serie copmpleta son: " + chernobylSerie.getMinutesLong());
+        System.out.println("\nLos minutos totales para ver la serie copmpleta son: " + chernobylSerie.getMinutesLong());
 
 
         //SEGUNDA PELICULA
@@ -52,22 +53,44 @@ public class Principal {
         anotherMovie.setName("Lego Movie");
         anotherMovie.setDateRelease(2016);
         anotherMovie.setMinutesLong(116);
-
+        //se muestra la ficha tecnica
         anotherMovie.showsTechnicalSheet();
 
         anotherMovie.ratingMovie(8.1);
         anotherMovie.ratingMovie(9);
         anotherMovie.ratingMovie(7.9);
-
+        //calculo de media de ratings
         anotherMovie.showsCalculationMean();
 
+        //nuevo obj de la clase Movie
+        Movie anotherMovie2 = new Movie();
+        anotherMovie2.setName("Soul");
+        anotherMovie2.setDateRelease(2020);
+        anotherMovie2.setMinutesLong(100);
+        anotherMovie2.showsTechnicalSheet();
 
+        //nuevo obj de la clase Serie
+        Serie anotherSerie = new Serie();
+        anotherSerie.setName("Smilling Firends");
+        anotherSerie.setDateRelease(2020);
+        anotherSerie.setSeasons(1);
+        anotherSerie.setEpisodesEachSeason(9);
+        anotherSerie.setMinutesEachEpisode(10);
+        anotherSerie.showsTechnicalSheet();
+        System.out.println("El tiempo para ver el titulo completo es: " + anotherSerie.getMinutesLong() + " minutos");
+
+
+        //nuevo obj "calculator" de la clase CalculadoraDeTiempo
         CalculadoraDeTiempo calculator = new CalculadoraDeTiempo();
+        //calculo de minutos totales de todos los titulos (series y peliculas)
         calculator.addingTitles(myMovie);
         calculator.addingTitles(chernobylSerie);
         calculator.addingTitles(anotherMovie);
-        System.out.println("\nEl tiempo total en minutos para ver estos titulos es: " + calculator.getTotalTime());
+        calculator.addingTitles(anotherMovie2);
+        calculator.addingTitles(anotherSerie);
 
+        //se muestran los minutos totales
+        System.out.println("\nEl tiempo total para ver estos titulos es: " + calculator.getTotalTime() + " minutos");
 
     }
 }

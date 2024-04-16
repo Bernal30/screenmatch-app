@@ -42,6 +42,7 @@ public class Title {
         return minutesLong;
     }
 
+    //getter
     public boolean isAddedInPlan() {
         return addedInPlan;
     }
@@ -55,7 +56,7 @@ public class Title {
     //void hace que el metodo showsTechnicalSheet() no retorne nada
     public void showsTechnicalSheet() {
         //mensaje en pantalla de la ficha tecnica de la pelicula
-        System.out.println("\nEl nombre de la pelicula es " + name);
+        System.out.println("\nEl nombre del titulo es " + name);
         System.out.println("Fecha de lanzamiento: " + dateRelease);
         System.out.println("Duración en minutos: " + getMinutesLong());
     }
@@ -65,13 +66,13 @@ public class Title {
         totalRatings++;
     }
 
-    //este método retorna un double se útiliza return
+    //este método retorna un double mediante un return
     public double calculationMean() {
         return ratingSum / totalRatings;
     }
 
     public void showsCalculationMean() {
-        System.out.println("El total de las evaluaciones es: " + totalRatings);
+        System.out.println("\nEl total de las evaluaciones es: " + totalRatings);
         System.out.println("la media de los ratings es: " + calculationMean());
     }
 }
