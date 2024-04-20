@@ -109,6 +109,6 @@ public class Principal {
         episode.setTotalLikes(1508);
 
         //aplicando el filtro de recomendaciones al obj "episode"
-        System.out.println("Para este episodio episodio: " + recommendationFilter.toFilter(episode));
+        System.out.println("Para este episodio: " + recommendationFilter.toFilter(episode));
     }
 }
