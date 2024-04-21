@@ -14,6 +14,7 @@ public class CalculadoraDeTiempo {
     //el concepto de polimorfismo nos ayuda a redicur codigo al no llamar dos veces al metodo addingTitles()
 
     public void addingTitles(Title title) {
+        System.out.println("\nAgregando duración en minutos de: " + title);
         this.totalTime += title.getMinutesLong();
     }
 

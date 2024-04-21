@@ -8,7 +8,7 @@ public class Title {
     double ratingSum;
     int totalRatings;
     //modificador de acceso private para que no se pueda acceder a el desde fuera de la clase
-    private double metacriticRatingMyMovie = 9.8;
+    private final double metacriticRatingMyMovie = 9.8;
 
     //setters para las variables privadas
 

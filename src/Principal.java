@@ -5,10 +5,13 @@ import com.empresa.screenmatch.modelos.Episodes;
 import com.empresa.screenmatch.modelos.Movie;
 import com.empresa.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
-        //instancia de la clase modelo de MOVIE, nuevo obj "myMovie"
-        Movie myMovie = new Movie();
+        //instancia del constructor Movie(); para un nuevo objeto llamado "myMovie"
+        //Movie al inicio es la variable de referencia para el tipo de dato
+        Movie myMovie = new Movie("Fight Club");
         //declaramos atributos del objeto
         myMovie.setName("Fight Club");
         myMovie.setDateRelease(1999);
@@ -51,8 +54,7 @@ public class Principal {
 
 
         //SEGUNDA PELICULA
-        Movie anotherMovie = new Movie();
-        anotherMovie.setName("Lego Movie");
+        Movie anotherMovie = new Movie("Lego Movie");
         anotherMovie.setDateRelease(2016);
         anotherMovie.setMinutesLong(116);
         //se muestra la ficha tecnica
@@ -65,8 +67,7 @@ public class Principal {
         anotherMovie.showsCalculationMean();
 
         //nuevo obj de la clase Movie
-        Movie anotherMovie2 = new Movie();
-        anotherMovie2.setName("Soul");
+        Movie anotherMovie2 = new Movie("Soul");
         anotherMovie2.setDateRelease(2020);
         anotherMovie2.setMinutesLong(100);
         anotherMovie2.showsTechnicalSheet();
@@ -79,7 +80,7 @@ public class Principal {
         anotherSerie.setEpisodesEachSeason(9);
         anotherSerie.setMinutesEachEpisode(10);
         anotherSerie.showsTechnicalSheet();
-        System.out.println("El tiempo para ver el titulo completo es: " + anotherSerie.getMinutesLong() + " minutos");
+        System.out.println("El tiempo para ver " + anotherSerie.getName() + " completo es: " + anotherSerie.getMinutesLong() + " minutos");
 
 
         //nuevo obj "calculator" de la clase CalculadoraDeTiempo
@@ -110,5 +111,30 @@ public class Principal {
 
         //aplicando el filtro de recomendaciones al obj "episode"
         System.out.println("Para este episodio: " + recommendationFilter.toFilter(episode));
+
+        //la declaración var no hace instancia del tipo de dato
+        var anotherMovie3 = new Movie("Blade Runner 2049");
+        anotherMovie3.setDateRelease(2017);
+        anotherMovie3.setMinutesLong(163);
+        anotherMovie3.setDirector("Denis Villeneuve");
+
+        ArrayList<Movie> moviesList = new ArrayList<>();
+        moviesList.add(anotherMovie3);
+        moviesList.add(myMovie);
+        moviesList.add(anotherMovie);
+        moviesList.add(anotherMovie2);
+
+        //tamaño del array
+        System.out.println("\nTamaño de la lista: " + moviesList.size());
+
+        //se obtien el primer objeto del array y de ese objeto se obtiene su nombre
+        System.out.println("La primera pelicula es: " + moviesList.get(0).getName());
+
+        //se obtine el ultimo objeto del array y de ese objeto se obtiene su nombre
+        System.out.println("La ultima pelicula de la lista es: " + moviesList.get(moviesList.size() - 1).getName());
+
+        System.out.println(moviesList);
+
+        System.out.println("toString de la primer pelicula de la lista: " + moviesList.get(0).toString());
     }
 }
