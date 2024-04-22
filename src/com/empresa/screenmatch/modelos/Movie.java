@@ -9,8 +9,13 @@ public class Movie extends Title implements Classification {
     String director;
 
     //Constructor de objetos Movie para recibir un parametro de tipo String
-    public Movie(String name) {
-        this.setName(name);
+    //public Movie(String name) {
+    //this.setName(name);
+    //}
+
+    public Movie(String name, int dateRelease) {
+        //se llama al constructor de la clase madre Title
+        super(name, dateRelease);
     }
 
     public String getDirector() {

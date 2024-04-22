@@ -1,3 +1,5 @@
+package com.empresa.screenmatch.principal;
+
 //se importan las clases del package
 import com.empresa.screenmatch.calculos.CalculadoraDeTiempo;
 import com.empresa.screenmatch.calculos.RecommendationFilter;
@@ -11,10 +13,8 @@ public class Principal {
     public static void main(String[] args) {
         //instancia del constructor Movie(); para un nuevo objeto llamado "myMovie"
         //Movie al inicio es la variable de referencia para el tipo de dato
-        Movie myMovie = new Movie("Fight Club");
+        Movie myMovie = new Movie("Fight Club", 1999);
         //declaramos atributos del objeto
-        myMovie.setName("Fight Club");
-        myMovie.setDateRelease(1999);
         myMovie.setMinutesLong(126);
         myMovie.setAddedInPlan(true);
         myMovie.setDirector("David Fincher");
@@ -23,9 +23,9 @@ public class Principal {
         myMovie.showsTechnicalSheet();
 
         //tres ratings para la pelicula Fight Club
-        myMovie.ratingMovie(9.2);
-        myMovie.ratingMovie(10);
-        myMovie.ratingMovie(8.9);
+        myMovie.ratingTitle(9.2);
+        myMovie.ratingTitle(10);
+        myMovie.ratingTitle(8.9);
 
         //se muestra el calculo de la media de los ratings
         myMovie.showsCalculationMean();
@@ -41,9 +41,7 @@ public class Principal {
         }
 
         //se declara un nuevo obj serie con sus atributos
-        Serie chernobylSerie = new Serie();
-        chernobylSerie.setName("Chernobyl");
-        chernobylSerie.setDateRelease(2020);
+        Serie chernobylSerie = new Serie("Chernobyl", 2020);
         chernobylSerie.setSeasons(1);
         chernobylSerie.setEpisodesEachSeason(5);
         chernobylSerie.setMinutesEachEpisode(60);
@@ -54,28 +52,24 @@ public class Principal {
 
 
         //SEGUNDA PELICULA
-        Movie anotherMovie = new Movie("Lego Movie");
-        anotherMovie.setDateRelease(2016);
+        Movie anotherMovie = new Movie("Lego Movie", 2016);
         anotherMovie.setMinutesLong(116);
         //se muestra la ficha tecnica
         anotherMovie.showsTechnicalSheet();
 
-        anotherMovie.ratingMovie(8.1);
-        anotherMovie.ratingMovie(9);
-        anotherMovie.ratingMovie(7.9);
+        anotherMovie.ratingTitle(8.1);
+        anotherMovie.ratingTitle(9);
+        anotherMovie.ratingTitle(7.9);
         //calculo de media de ratings
         anotherMovie.showsCalculationMean();
 
         //nuevo obj de la clase Movie
-        Movie anotherMovie2 = new Movie("Soul");
-        anotherMovie2.setDateRelease(2020);
+        Movie anotherMovie2 = new Movie("Soul", 2020);
         anotherMovie2.setMinutesLong(100);
         anotherMovie2.showsTechnicalSheet();
 
         //nuevo obj de la clase Serie
-        Serie anotherSerie = new Serie();
-        anotherSerie.setName("Smiling Firends");
-        anotherSerie.setDateRelease(2020);
+        Serie anotherSerie = new Serie("Smiling Firends", 2020);
         anotherSerie.setSeasons(1);
         anotherSerie.setEpisodesEachSeason(9);
         anotherSerie.setMinutesEachEpisode(10);
@@ -113,8 +107,7 @@ public class Principal {
         System.out.println("Para este episodio: " + recommendationFilter.toFilter(episode));
 
         //la declaración var no hace instancia del tipo de dato
-        var anotherMovie3 = new Movie("Blade Runner 2049");
-        anotherMovie3.setDateRelease(2017);
+        var anotherMovie3 = new Movie("Blade Runner 2049", 2017);
         anotherMovie3.setMinutesLong(163);
         anotherMovie3.setDirector("Denis Villeneuve");
 

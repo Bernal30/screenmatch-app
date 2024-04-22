@@ -10,8 +10,12 @@ public class Title {
     //modificador de acceso private para que no se pueda acceder a el desde fuera de la clase
     private final double metacriticRatingMyMovie = 9.8;
 
-    //setters para las variables privadas
+    public Title(String name, int dateRelease) {
+        this.name = name;
+        this.dateRelease = dateRelease;
+    }
 
+    //setters para las variables privadas
     public void setName(String name) {
         this.name = name;
     }
@@ -61,7 +65,7 @@ public class Title {
         System.out.println("Duración en minutos: " + getMinutesLong());
     }
 
-    public void ratingMovie(double rate) {
+    public void ratingTitle(double rate) {
         ratingSum += rate;
         totalRatings++;
     }

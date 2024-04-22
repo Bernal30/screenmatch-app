@@ -7,6 +7,11 @@ public class Serie extends Title {
     int episodesEachSeason;
     int minutesEachEpisode;
 
+    public Serie(String name, int dateRelease) {
+        //se llama al constructor de la clase madre Title
+        super(name, dateRelease);
+    }
+
     //@Overrite se usa para sobre escribir un metodo de la super clase para comportamientos especificos en la subclase
     @Override
     //metodo sobre escrito en el metodo getMinutesLong() para dos clases de objetos diferentes
