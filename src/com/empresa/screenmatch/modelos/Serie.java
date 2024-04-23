@@ -43,6 +43,7 @@ public class Serie extends Title {
         this.minutesEachEpisode = minutesEachEpisode;
     }
 
+    //sobre escribimos el metodo to String de la super clase Object
     @Override
     public String toString() {
         return " " + this.getName() + " (" + this.getDateRelease() + ")";

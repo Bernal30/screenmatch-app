@@ -1,6 +1,6 @@
 package com.empresa.screenmatch.modelos;
 
-public class Title {
+public class Title implements Comparable<Title> {
     private String name;
     private int dateRelease;
     private int minutesLong;
@@ -78,5 +78,12 @@ public class Title {
     public void showsCalculationMean() {
         System.out.println("\nEl total de las evaluaciones es: " + totalRatings);
         System.out.println("la media de los ratings es: " + calculationMean());
+    }
+
+    //sobre escribimos el metodo comparaTo de la interfaz
+    @Override
+    public int compareTo(Title anotherTitle) {
+        //obtenemos los nombres de los objetos Title e implementamos el compareTo ya que este solo se puede usar en Strings
+        return this.getName().compareTo(anotherTitle.getName());
     }
 }

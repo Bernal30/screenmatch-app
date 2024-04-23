@@ -40,6 +40,7 @@ public class Episodes implements Classification {
         this.serie = serie;
     }
 
+    //sobre escribimos el metodo plantilla de la interfaz clasification
     @Override
     public int getClassification() {
         if (totalLikes > 500) {

@@ -5,6 +5,9 @@ import com.empresa.screenmatch.modelos.Serie;
 import com.empresa.screenmatch.modelos.Title;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class PrincipalWithArray {
     public static void main(String[] args) {
@@ -45,5 +48,30 @@ public class PrincipalWithArray {
             }
 
         }
+
+        //Instancia de la interfaz List para trabajar con diversos constructores de Arrays
+        List<String> iceCreamFlavor = new ArrayList<>();
+        iceCreamFlavor.add("Chocolate");
+        iceCreamFlavor.add("Vainilla");
+        iceCreamFlavor.add("Pistache");
+        iceCreamFlavor.add("Blueberry");
+        iceCreamFlavor.add("Arandano");
+        iceCreamFlavor.add("Napolitano");
+        iceCreamFlavor.add("Fresa");
+
+        //Array desordenado
+        System.out.println("\nLista de sabores de helado desordenado: " + iceCreamFlavor);
+
+        //Array ordenado
+        Collections.sort(iceCreamFlavor);
+        System.out.println("Lista de sabores de helados en orden alfabetico: " + iceCreamFlavor);
+
+        //ordenamos alfabeticamente los titulos
+        Collections.sort(moviesList);
+        System.out.println("Lista de titulos ordenados alfabeticamente: " + moviesList);
+
+        moviesList.sort(Comparator.comparing(Title::getDateRelease));
+        System.out.println("Lista ordenada por fecha: " + moviesList);
+
     }
 }
