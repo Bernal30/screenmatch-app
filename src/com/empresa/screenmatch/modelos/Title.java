@@ -1,5 +1,6 @@
 package com.empresa.screenmatch.modelos;
 
+import com.empresa.screenmatch.Exception.ErrorConversionMinutsLongException;
 import com.google.gson.annotations.SerializedName;
 
 public class Title implements Comparable<Title> {
@@ -25,8 +26,14 @@ public class Title implements Comparable<Title> {
         this.name = titleRequestOmdb.title();
         //casting del atributo string "titleRequestOmdb.year()" a un entero
         this.dateRelease = Integer.valueOf(titleRequestOmdb.year());
+        //si cuando el programa encuentra un "N/A"
+        if (titleRequestOmdb.runtime().contains("N/A")) {
+            throw new ErrorConversionMinutsLongException("No se puedo convertir la duración ya que contiene un N/A");
+        }
         //solo se convierte a un entero las primeras 3 posiciones del String usando substring(0,3)
-        this.minutesLong = Integer.valueOf(titleRequestOmdb.runtime().substring(0,3));
+        this.minutesLong = Integer.valueOf(titleRequestOmdb.runtime().substring(0,3)
+                .replace(" ", ""));
+
     }
 
     //setters para las variables privadas

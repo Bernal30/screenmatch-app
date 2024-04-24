@@ -1,0 +1,1 @@
+name='Fight Club', dateRelease=1999, duración=139

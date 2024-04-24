@@ -1,5 +1,6 @@
 package com.empresa.screenmatch.principal;
 
+import com.empresa.screenmatch.Exception.ErrorConversionMinutsLongException;
 import com.empresa.screenmatch.modelos.Title;
 import com.empresa.screenmatch.modelos.TitleOmdb;
 //importaciones de la biblioteca Gson
@@ -7,6 +8,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -25,7 +27,8 @@ public class MainWithSearch {
         String userRequest = reading.next();
 
         //petición dinamica para API
-        String dinamicRequest = "https://www.omdbapi.com/?t="+userRequest+"&apikey=72bc7832";
+        String dinamicRequest = "https://www.omdbapi.com/?t="+userRequest
+                .replace(" ", "+")+"&apikey=72bc7832";
 
         //intentamos ejcutar un bloque de código que pueda crear una excepción
         try {
@@ -56,17 +59,22 @@ public class MainWithSearch {
             Title titleRequest = new Title(titleRequestOmdb);
             System.out.println("Titulo convertido de JSON a una clase: " + titleRequest);
 
+            FileWriter writing = new FileWriter("movies.txt");
+            writing.write(titleRequest.toString());
+            writing.close();
+
         } catch (NumberFormatException e) {
             //capturamos un error del try y se muestra el mensaje del error
             System.out.println("Ocurrio un error: ");
             System.out.println(e.getMessage());
         } catch(IllegalArgumentException e) {
             System.out.println("Error en la URI, verifique la dirección.");
+        } catch(ErrorConversionMinutsLongException e) {
+            System.out.println(e.getMessage());
         } finally {
             //aun que exista un excepción o no simpre se ejecutara el código de un finally
             System.out.println("Finalizo la ejecución del programa!");
         }
-
 
 
         reading.close();
