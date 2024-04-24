@@ -101,6 +101,7 @@ public class Title implements Comparable<Title> {
         return this.getName().compareTo(anotherTitle.getName());
     }
 
+    //toString par cuando se implemente el println() a una clase Title
     @Override
     public String toString() {
         return "name='" + name + '\'' +
