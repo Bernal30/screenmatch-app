@@ -1,7 +1,12 @@
 package com.empresa.screenmatch.modelos;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Title implements Comparable<Title> {
+    //enlazamos la palabra "Title" del Json al atributo "name" del la clase
+    @SerializedName("Title")
     private String name;
+    @SerializedName("Year")
     private int dateRelease;
     private int minutesLong;
     private boolean addedInPlan;
@@ -13,6 +18,15 @@ public class Title implements Comparable<Title> {
     public Title(String name, int dateRelease) {
         this.name = name;
         this.dateRelease = dateRelease;
+    }
+
+    //constructor para adaptar clase de TitleOmdb a una clase Title
+    public Title(TitleOmdb titleRequestOmdb) {
+        this.name = titleRequestOmdb.title();
+        //casting del atributo string "titleRequestOmdb.year()" a un entero
+        this.dateRelease = Integer.valueOf(titleRequestOmdb.year());
+        //solo se convierte a un entero las primeras 3 posiciones del String usando substring(0,3)
+        this.minutesLong = Integer.valueOf(titleRequestOmdb.runtime().substring(0,3));
     }
 
     //setters para las variables privadas
@@ -85,5 +99,12 @@ public class Title implements Comparable<Title> {
     public int compareTo(Title anotherTitle) {
         //obtenemos los nombres de los objetos Title e implementamos el compareTo ya que este solo se puede usar en Strings
         return this.getName().compareTo(anotherTitle.getName());
+    }
+
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", dateRelease=" + dateRelease +
+                ", duración=" + minutesLong;
     }
 }

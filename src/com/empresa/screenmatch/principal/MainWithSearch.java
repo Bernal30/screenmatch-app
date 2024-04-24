@@ -1,5 +1,11 @@
 package com.empresa.screenmatch.principal;
 
+import com.empresa.screenmatch.modelos.Title;
+import com.empresa.screenmatch.modelos.TitleOmdb;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -29,7 +35,21 @@ public class MainWithSearch {
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println(response.body());
+        //obtenemos la repsuesta de la API en formato JSON
+        String json = response.body();
+        System.out.println(json);
+
+        //instancia de la libreria Gson
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .create();
+        //clase que recibe atributos en JSON
+        TitleOmdb titleRequestOmdb = gson.fromJson(json, TitleOmdb.class);
+        System.out.println(titleRequestOmdb);
+
+        //clase que adapta los atributos en JSON a los atributos de la clase Tiltle
+        Title titleRequest = new Title(titleRequestOmdb);
+        System.out.println(titleRequest);
 
     }
 }
